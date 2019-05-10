@@ -9,4 +9,8 @@
     <string name="adjective">Adjective</string>
     <string name="adverb">Adverb</string>
     <string name="preposition">Preposition</string>
+    <string name="enter_a_word">Please enter a word.</string>
+    <string name="enter_definition">Enter definition.</string>
+    <string name="select_part_of_speech">Select a value for part of speech.</string>
+    <string name="new_word">New Word Added!</string>
 </resources>

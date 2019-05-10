@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class NewWordActivity extends AppCompatActivity {
 
@@ -31,13 +32,21 @@ public class NewWordActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
-                if (TextUtils.isEmpty(mEditWordView.getText()) || TextUtils.isEmpty(mEditDefinitionView.getText()) || mChecked==false ) {
-                    setResult(RESULT_CANCELED, replyIntent);
+                if (TextUtils.isEmpty(mEditWordView.getText())) {
+                    Toast.makeText(NewWordActivity.this, R.string.enter_a_word, Toast.LENGTH_LONG).show();
+                }
+                else if (TextUtils.isEmpty(mEditDefinitionView.getText())) {
+                    Toast.makeText(NewWordActivity.this, R.string.enter_definition, Toast.LENGTH_LONG).show();
+                }
+                else if (mChecked==false) {
+                    Toast.makeText(NewWordActivity.this, R.string.select_part_of_speech, Toast.LENGTH_LONG).show();
                 }
                 else {
                     String word = mEditWordView.getText().toString();
-                    word = word + mPartOfSpeech + mEditDefinitionView.getText().toString();
+                    word = word + " " + mPartOfSpeech + " - "+ mEditDefinitionView.getText().toString();
+                    String definition = mEditDefinitionView.getText().toString();
                     replyIntent.putExtra(EXTRA_REPLY, word);
+                    //replyIntent.putExtra(EXTRA_REPLY, definition);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();

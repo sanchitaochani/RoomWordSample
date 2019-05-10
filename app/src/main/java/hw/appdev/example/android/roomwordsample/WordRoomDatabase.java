@@ -49,10 +49,10 @@ public abstract class WordRoomDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             mDao.deleteAll();
-            Word word = new Word("Hello");
-            mDao.insert(word);
-            word = new Word("World");
-            mDao.insert(word);
+            //Word word = new Word("Hello");
+            //mDao.insert(word);
+            //word = new Word("World");
+            //mDao.insert(word);
             return null;
         }
     }
